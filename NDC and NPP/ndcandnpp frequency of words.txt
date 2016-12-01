@@ -1,0 +1,11 @@
+                   word frequency
+will               will       654
+development development       323
+ghana             ghana       262
+government   government       238
+sector           sector       221
+national       national       215
+education     education       167
+support         support       167
+country         country       153
+ensure           ensure       151

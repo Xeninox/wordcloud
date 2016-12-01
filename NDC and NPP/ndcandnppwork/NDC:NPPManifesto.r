@@ -7,7 +7,7 @@
 library(tm)
 #
 # connect to the directoryse
-setwd("/Applications/XAMPP/xamppfiles/htdocs/wordcloud/NDC/ndcwork")
+setwd("/Applications/XAMPP/xamppfiles/htdocs/wordcloud/NDC and NPP/ndcandnppwork")
 #
 # load in the pdf files that hold the Manifestos
 # (we did this manually, but see if you can find
