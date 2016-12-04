@@ -1,5 +1,5 @@
-# Manifesto.R, cwj, 11/3/2016
-# demo on how to do Manifesto Analysis
+# NPPManifesto.R, Maame Yaa Afriyie Poku 12/3/2016
+# NPP Manifesto Analysis
 # based on http://data.library.virginia.edu/reading-pdf-files-into-r-for-text-mining
 # to be done in recitation
 #
@@ -8,11 +8,11 @@ library(tm)
 #
 # connect to the directory
 setwd("~/NppManifesto")
+
+# to add color to the wordcloud
 library("RColorBrewer")
 #
-# load in the pdf files that hold the Manifestos
-# (we did this manually, but see if you can find
-#  an automatic method using R!)
+# load in the pdf files that hold the Manifesto
 #
 files <- list.files(pattern="pdf$")
 files
@@ -26,11 +26,6 @@ Sys.setenv(TZ="GMT")
 # read in all the Manifestos at a go
 Manifesto <- Corpus(URISource(files),
                      readerControl = list(reader = Rpdf))
-
-#Manifestos <- tm_map(Manifestos, removeWords, c("the", "and", "will", "that", "are", 
-#                                                "also", "other", "its", "has", "have", 
-#                                                "this", "from", "into", "over")) 
-#
 # create the TDM
 Manifesto.tdm <- TermDocumentMatrix(Manifesto, control = list(
   removePunctuation = TRUE,
@@ -40,10 +35,10 @@ Manifesto.tdm <- TermDocumentMatrix(Manifesto, control = list(
   removeNumbers = TRUE,
   bounds = list(global = c(1, Inf))))
 #
-# preview the top ten terms across the Manifestos
+# preview the top ten terms in the Manifesto
 inspect(Manifesto.tdm[1:10,])
 #
-# find the top ten most frequent words across the Manifestos
+# find the top ten most frequent words in the Manifesto
 findFreqTerms(Manifesto.tdm, lowfreq=100, highfreq=Inf)
 #
 # load wordcloud package to draw wordcloud
@@ -52,7 +47,7 @@ library(wordcloud)
 # put together wordcloud of whole corpus
 wordcloud(Manifesto, max.words=30, colors=brewer.pal(8, "Dark2"))
 
-#making a barplot of the most frequently used words
+# make a barplot of the most frequently used words
 manifestoMatrix <- as.matrix(Manifesto.tdm)
 manifestoVector <- sort(rowSums(manifestoMatrix),decreasing=TRUE)
 dataFrame <- data.frame(word = names(manifestoVector),frequency=manifestoVector)
