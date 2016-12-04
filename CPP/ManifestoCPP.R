@@ -1,51 +1,51 @@
-# Manifesto.R, cwj, 11/3/2016
-# demo on how to do Manifesto Analysis
-# based on http://data.library.virginia.edu/reading-pdf-files-into-r-for-text-mining
-# to be done in recitation
-#
+#Group C Data Mining Project
+#Jeffrey Takyi-Yeboah 
+#40532017
+#Script to run CPP manifesto
+
 # load in the text mining package
 library(tm)
 #
-# connect to the directoryse
-setwd("/Users/JeffreyTakyi-Yeboah/Desktop/Desktop/CPP")
-#
-# load in the pdf files that hold the Manifestos
-# (we did this manually, but see if you can find
-#  an automatic method using R!)
-#
+# connect to the directory
+setwd("C:\Users\Constant\Documents\GitHub\wordcloud\CPP")
+library("RColorBrewer")
 files <- list.files(pattern="pdf$")
-#
-# defining Reader for pdf files))
+
+# list out the files that were laoded into the system
+files
+
+# defining Reader for pdf files
 Rpdf <- readPDF(control = list(text = "-layout"))
-#
-# prepare to say we are in Accra for time zone purposes
+
+# set the timezone
 Sys.setenv(TZ="GMT")
-#
+
 # read in all the Manifestos at a go
 Manifestos <- Corpus(URISource(files),
-                    readerControl = list(reader = Rpdf))
-#
-# create the TDM
+                     readerControl = list(reader = Rpdf))
+
+# create the term document matrix
 Manifestos.tdm <- TermDocumentMatrix(Manifestos, control = list(
-   removePunctuation = TRUE,
-   stopwords = TRUE,
-   tolower = TRUE,
-   stemming = FALSE,
-   removeNumbers = TRUE,
-   bounds = list(global = c(1, Inf))))
-#
+  removePunctuation = TRUE,
+  stopwords = TRUE,
+  tolower = TRUE,
+  stemming = FALSE,
+  removeNumbers = TRUE,
+  bounds = list(global = c(1, Inf))))
+
 # preview the top ten terms across the Manifestos
 inspect(Manifestos.tdm[1:10,])
-#
+
 # find the top ten most frequent words across the Manifestos
 findFreqTerms(Manifestos.tdm, lowfreq=100, highfreq=Inf)
 #
 # load wordcloud package to draw wordcloud
 library(wordcloud)
-#
-# put together wordcloud of whole corpus
-wordcloud(Manifestos, max.words=30)
 
+# put together wordcloud of whole corpus
+wordcloud(Manifestos, max.words=50, colors=brewer.pal(8, "Dark2"))
+
+#making a barplot of the most frequently used words
 manifestoMatrix <- as.matrix(Manifestos.tdm)
 manifestoVector <- sort(rowSums(manifestoMatrix),decreasing=TRUE)
 dataFrame <- data.frame(word = names(manifestoVector),frequency=manifestoVector)
