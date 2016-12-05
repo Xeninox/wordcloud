@@ -1,11 +1,11 @@
                    word frequency
 will               will      1033
-development development       463
-ghana             ghana       353
-government   government       295
-sector           sector       285
-new                 new       279
-ensure           ensure       232
-national       national       223
-party             party       213
-policy           policy       209
+development development       450
+ghana             ghana       356
+government   government       294
+sector           sector       287
+national       national       284
+ensure           ensure       235
+education     education       234
+country         country       204
+public           public       198
