@@ -1,0 +1,12 @@
+                  word frequency
+will               will       207
+development development       149
+ghana             ghana       135
+national       national       122
+continue       continue       119
+region           region       114
+support         support       104
+education     education        99
+sector           sector        88
+production   production        77
+> 
