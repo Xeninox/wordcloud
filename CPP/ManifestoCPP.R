@@ -7,13 +7,9 @@
 library(tm)
 #
 # connect to the directory
-<<<<<<< HEAD
 setwd("/Users/JeffreyTakyi-Yeboah/Desktop/Desktop/wordcloud/CPP")
 
 
-=======
-setwd("C:\Users\Constant\Documents\GitHub\wordcloud\CPP")
->>>>>>> origin/master
 library("RColorBrewer")
 files <- list.files(pattern="pdf$")
 
@@ -49,11 +45,7 @@ findFreqTerms(Manifestos.tdm, lowfreq=100, highfreq=Inf)
 library(wordcloud)
 
 # put together wordcloud of whole corpus
-<<<<<<< HEAD
 wordcloud(Manifestos, max.words=40, colors=brewer.pal(8, "Dark2"))
-=======
-wordcloud(Manifestos, max.words=50, colors=brewer.pal(8, "Dark2"))
->>>>>>> origin/master
 
 #making a barplot of the most frequently used words
 manifestoMatrix <- as.matrix(Manifestos.tdm)
