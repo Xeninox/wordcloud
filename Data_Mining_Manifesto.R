@@ -1,13 +1,12 @@
-#Group C Data Mining Project
-#Jeffrey Takyi-Yeboah 
-#40532017
-#Script to run CPP manifesto
+# GROUP C - DATA MINING FINAL PROJECT
+# CREATING WORD CLOUD WITH GHANAIAN POLITICAL PARTIES MANIFESTOS
+# DATE: 30-11-2016
 
 # load in the text mining package
 library(tm)
 #
 # connect to the directory
-setwd("C:\Users\Constant\Documents\GitHub\wordcloud\CPP")
+setwd("~/Manifestos")
 library("RColorBrewer")
 files <- list.files(pattern="pdf$")
 
@@ -31,7 +30,7 @@ Manifestos.tdm <- TermDocumentMatrix(Manifestos, control = list(
   tolower = TRUE,
   stemming = FALSE,
   removeNumbers = TRUE,
-  bounds = list(global = c(1, Inf))))
+  bounds = list(global = c(3, Inf))))
 
 # preview the top ten terms across the Manifestos
 inspect(Manifestos.tdm[1:10,])

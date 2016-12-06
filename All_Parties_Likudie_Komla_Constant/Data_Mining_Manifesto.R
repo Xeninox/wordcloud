@@ -1,12 +1,14 @@
 # GROUP C - DATA MINING FINAL PROJECT
 # CREATING WORD CLOUD WITH GHANAIAN POLITICAL PARTIES MANIFESTOS
 # DATE: 30-11-2016
+# LIKUDIE KOMLA CONSTANT - 10052018
+
 
 # load in the text mining package
 library(tm)
 #
 # connect to the directory
-setwd("~/Manifestos")
+setwd("~/Manifestos/All_Parties_Likudie_Komla_Constant")
 library("RColorBrewer")
 files <- list.files(pattern="pdf$")
 
@@ -42,7 +44,7 @@ findFreqTerms(Manifestos.tdm, lowfreq=100, highfreq=Inf)
 library(wordcloud)
 
 # put together wordcloud of whole corpus
-wordcloud(Manifestos, max.words=200, colors=brewer.pal(8, "Dark2"))
+wordcloud(Manifestos, max.words=50, colors=brewer.pal(8, "Dark2"))
 
 #making a barplot of the most frequently used words
 manifestoMatrix <- as.matrix(Manifestos.tdm)

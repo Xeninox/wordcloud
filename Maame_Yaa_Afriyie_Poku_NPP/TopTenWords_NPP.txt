@@ -1,0 +1,12 @@
+        
+                   word frequency
+will               will       449
+npp                 npp       443
+new                 new       208
+development development       195
+government   government       179
+party             party       167
+patriotic     patriotic       166
+manifesto     manifesto       147
+election       election       143
+sector           sector       133
